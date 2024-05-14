@@ -1,0 +1,917 @@
+﻿@model DavaSurecTakip.UI.Models.TableListViewModel
+
+@{
+    Layout = "~/Views/Shared/Portal_Layout.cshtml";
+}
+
+<div class="wrapperr">
+
+    <div class="headerr">
+        <h1 class="header___title">Look-Up Tabloları</h1>
+    </div>
+    <div class="kartlar">
+
+        <div class=" kart [ is-collapsed ]">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-AttornerL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped" id="idtable">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Vekil Bilgisi</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var p in Model.lookupAttornerL)
+                                {
+                                    <tr>
+                                        <th>@p.AttornerId</th>
+                                        <td>@p.Attorner</td>
+                                        <td><a href="/Portal/UyarlamaSil/@p.AttornerId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><a href="/Portal/UyarlamaGuncelle/@p.AttornerId" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.attornerL.AttornerId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("AttornerL / Vekil Bilgisi")
+                                                    @Html.TextBoxFor(x => x.attornerL.Attorner, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="Btn1" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <center>
+                        <button type="button" class="custom-btn btn-15" data-toggle="modal" data-target=".bd-example-modal-xl">YENI KAYIT</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ]">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-CaseResultL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Dava Sonucu</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var l in Model.lookupCaseResultL)
+                                {
+                                    <tr>
+                                        <th>@l.CaseResultId</th>
+                                        <td>@l.CaseResult</td>
+                                        <td><a href="/Portal/UyarlamaSil2/@l.CaseResultId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal2" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.caseResultL.CaseResultId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("CaseResultL / Dava Sonucu")
+                                                    @Html.TextBoxFor(x => x.caseResultL.CaseResult, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn2" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <center>
+                        <a href="#modal2" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-WorkAreaL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>İş Alanı</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var m in Model.LookupWorkAreaL)
+                                {
+                                    <tr>
+                                        <th>@m.WorkAreaId</th>
+                                        <td>@m.WorkArea</td>
+                                        <td><a href="/Portal/UyarlamaSil3/@m.WorkAreaId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal3" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.workAreaL.WorkAreaId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("WorkAreaL / İş Alanı")
+                                                    @Html.TextBoxFor(x => x.workAreaL.WorkArea, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn3" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <center>
+                        <a href="#modal3" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-CaseSubjectL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Dava Konusu</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var g in Model.lookupCaseSubjectL)
+                                {
+                                    <tr>
+                                        <th>@g.CaseSubjectId</th>
+                                        <td>@g.CaseSubject</td>
+                                        <td><a href="/Portal/UyarlamaSil4/@g.CaseSubjectId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal4" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.caseSubjectL.CaseSubjectId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("CaseSubjectL / Dava Konusu")
+                                                    @Html.TextBoxFor(x => x.caseSubjectL.CaseSubject, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn4" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <center>
+                        <a href="#modal4" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-CourtInfoL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Mahkeme Bilgisi</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var f in Model.lookupCourtInfoL)
+                                {
+                                    <tr>
+                                        <th>@f.CourtinInfoId</th>
+                                        <td>@f.CourtinInfo</td>
+                                        <td><a href="/Portal/UyarlamaSil5/@f.CourtinInfo" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal5" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.courtInfoL.CourtinInfoId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("CourtinInfo / Mahkeme Bilgisi")
+                                                    @Html.TextBoxFor(x => x.courtInfoL.CourtinInfo, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn5" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <center>
+                        <a href="#modal5" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-DamageTypeL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Tazminat Türü</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var w in Model.lookupDamageTypeL)
+                                {
+                                    <tr>
+                                        <th>@w.DamageTypeId</th>
+                                        <td>@w.DamageType</td>
+                                        <td><a href="/Portal/UyarlamaSil6/@w.DamageTypeId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal6" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.damageTypeL.DamageTypeId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("DamageTypeL / Tazminat Türü")
+                                                    @Html.TextBoxFor(x => x.damageTypeL.DamageType, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn6" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <center>
+                        <a href="#modal6" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-FileDamageStatusL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Hasar Dosya Durumu</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var u in Model.lookupFileDamageStatuses)
+                                {
+                                    <tr>
+                                        <th>@u.DamageStatusId</th>
+                                        <td>@u.FileDamagesStatus</td>
+                                        <td><a href="/Portal/UyarlamaSil7/@u.DamageStatusId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal7" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.damageStatusL.DamageStatusId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("DamageStatusL / Hasar Dosya Durumu")
+                                                    @Html.TextBoxFor(x => x.damageStatusL.FileDamagesStatus, new { @class = "form-control" }) @*Düzelt*@
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn7" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <center>
+                        <a href="#modal7" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-FileStageL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Dosya Aşaması</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var o in Model.lookupFileStageL)
+                                {
+                                    <tr>
+                                        <th>@o.FileStageId</th>
+                                        <td>@o.FileStage</td>
+                                        <td><a href="/Portal/UyarlamaSil8/@o.FileStageId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal8" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.fileStageL.FileStageId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("FileStageL / Dosya Durumu")
+                                                    @Html.TextBoxFor(x => x.fileStageL.FileStage, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn8" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <center>
+                        <a href="#modal8" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-InsuranceExplanationL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Sigorta-Açıklama</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var j in Model.lookupInsuranceExplanationL)
+                                {
+                                    <tr>
+                                        <th>@j.InsuranceExplanationId</th>
+                                        <td>@j.InsuranceExplanation</td>
+                                        <td><a href="/Portal/UyarlamaSil9/@j.InsuranceExplanationId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal9" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.lookupInsurance.InsuranceExplanationId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("InsuranceExplanationL / Sigorta Açıklaması")
+                                                    @Html.TextBoxFor(x => x.lookupInsurance.InsuranceExplanation, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn9" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <center>
+                        <a href="#modal9" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-LevyInfoL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>İcra Bilgileri</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var z in Model.LookupLevyInfoL)
+                                {
+                                    <tr>
+                                        <th>@z.LevyInfoId</th>
+                                        <td>@z.LevyInfo</td>
+                                        <td><a href="/Portal/UyarlamaSil10/@z.LevyInfoId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal10" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.levyInfoL.LevyInfoId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("LevyInfoL / İcra Bilgileri")
+                                                    @Html.TextBoxFor(x => x.levyInfoL.LevyInfo, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn10" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <center>
+                        <a href="#modal10" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-PaymentTypeL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Ödeme Tipi</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var t in Model.LookupPaymentTypeL)
+                                {
+                                    <tr>
+                                        <th>@t.PaymentTypeId</th>
+                                        <td>@t.PaymentType</td>
+                                        <td><a href="/Portal/UyarlamaSil11/@t.PaymentTypeId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal11" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.paymentTypeL.PaymentTypeId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("PaymentTypeL / Ödeme Tipi")
+                                                    @Html.TextBoxFor(x => x.paymentTypeL.PaymentType, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn11" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <center>
+                        <a href="#modal11" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class=" kart [ is-collapsed ] ">
+            <div class="kart__inner [ js-expander ]">
+                <span>Lookup-ProvinceL</span>
+                <i class="fa fa-folder-o"></i>
+            </div>
+            <div class="kart__expander">
+                <i class="fa fa-close [ js-collapser ]"></i>
+                <div class="row">
+                    <div class="col-sm-12  ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>İl</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var s in Model.LookupProvinceL)
+                                {
+                                    <tr>
+                                        <th>@s.ProvinceId</th>
+                                        <td>@s.Province</td>
+                                        <td><a href="/Portal/UyarlamaSil12/@s.ProvinceId" class="custom-btn-uyarlama ubtn-2"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                        <td><button type="submit" class="custom-btn-uyarlama ubtn-1"><i class="glyphicon glyphicon-pencil"></i></button> </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                    @using (Html.BeginForm("Uyarlamalar", "Portal", FormMethod.Post))
+                    {
+                        <div class="modal fade bd-example-modal-xl " id="modal12" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Ekle</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("Id")
+                                                    @Html.TextBoxFor(x => x.provinceL.ProvinceId, new { @class = "form-control", disabled = "disabled", @readonly = "readonly" })
+
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    @Html.Label("ProvinceL / İl")
+                                                    @Html.TextBoxFor(x => x.provinceL.Province, new { @class = "form-control" })
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                                <input type="submit" name="btn12" value="Ekle" class="custom-btn btn-2" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <center>
+                        <a href="#modal12" class="custom-btn btn-15" data-toggle="modal">Yeni Kayıt</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

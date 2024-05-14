@@ -1,0 +1,66 @@
+﻿@{
+
+    Layout = null;
+    var hata = TempData["Hata"] as string;
+}
+
+@await Html.PartialAsync("Head_Layout")
+
+<body>
+    <div class="header">
+        <div>
+            <a class="hiddenanchor" id="signup"></a>
+            <a class="hiddenanchor" id="signin"></a>
+
+            <div class="login_wrapper">
+                <div class="animate form login_form">
+                    <section class="login_content">
+                        <form action="~/LoginUI/LogIndex/" method="post">
+                            <h1>Dicle Elektrik</h1>
+                            <h1>Dava Süreç Takip Portalı</h1>
+                            <div>
+                                <input type="text" name="UserName" class="form-control" placeholder="Kullanıcı Adı" required="" />
+                            </div>
+                            <div>
+                                <input type="password" name="UserPassword" class="form-control" placeholder="Şifre" required="" />
+                            </div>
+                            <div>
+                                <button class="custom-btn btn-1"> Giris Yap</button>
+                                <button class="custom-btn btn-11" href="#">Sifreni mi unuttun?</button>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="separator">
+                                <div class="clearfix"></div>
+                                <br />
+                                <div>
+                                    <h2><i class="fa fa-paw"></i>  Dicle Elektrik Dağıtım A.Ş.</h2>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--Waves Container-->
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="2" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="#F7F7F7" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#F7F7F7" />
+                </g>
+            </svg>
+        </div>
+        <!--Waves end-->
+    </div>
+</body>
+
+@if (!string.IsNullOrEmpty(hata))
+{
+    <h2 class="alert-danger" style="padding:20px;">@hata</h2>
+}

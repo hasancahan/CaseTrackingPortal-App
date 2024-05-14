@@ -1,0 +1,463 @@
+﻿@model DavaSurecTakip.UI.Models.TableListViewModel
+@{
+    Layout = "~/Views/Shared/Portal_Layout.cshtml";
+}
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <script>
+        $(document).ready(function () {
+            $(".nav-tabs a").click(function () {
+                $(this).tab('show');
+            });
+        });
+    </script>
+</body>
+
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+        <br>
+        <div class="form-group col-md-6">
+            <label for="inputPassword2" class="sr-only"> </label>
+            <input type="text" class="form-control" id="inputPassword2" placeholder="İHope No">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword2" class="sr-only"> </label>
+            <input type="text" class="form-control" id="inputPassword2" placeholder="Dava Konusu">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword2" class="sr-only"> </label>
+            <input type="text" class="form-control" id="inputPassword2" placeholder="Oluşturulan Tarih">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword2" class="sr-only"> </label>
+            <input type="text" class="form-control" id="inputPassword2" placeholder="Olay Tarihi">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword2" class="sr-only"> </label>
+            <input type="text" class="form-control" id="inputPassword2" placeholder="İhbar Olunan">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="inputPassword2" class="sr-only"> </label>
+            <input type="text" class="form-control" id="inputPassword2" placeholder="Dosya Sonucu">
+        </div>
+        <button type="submit" class="custom-btn btn-15">Ara</button>
+    </div>
+    <br>
+
+</div>
+
+@*****************************************************************************************************************************************@
+
+<div class="col-md-12 col-sm-12 ">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Dava Listesi <small>Case/Dava</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box table-responsive">
+                        <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>CaseId</th>
+                                    <th>Ihope No</th>
+                                    <th>Dava Konusu</th>
+                                    <th>Davacı</th>
+                                    <th>TC</th>
+                                    <th>Oluşturma Tarihi</th>
+                                    <th>Olay Tarihi</th>
+                                    <th>İhbar Olunan</th>
+                                    <th>Dosya Aşaması</th>
+                                    <th>Sil</th>
+                                    <th>Düzenle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var q in Model.cases)
+                                {
+                                <tr>
+                                    <td>@q.CaseId</td>
+                                    <td>@q.IHopeId</td>
+                                    <td>@q.CaseSubjectDto</td>
+                                    <td>@q.Claimant</td>
+                                    <td>@q.Tc</td>
+                                    <td>@q.ErDatCreate</td>
+                                    <td>@q.EventDate</td>
+                                    <td>@q.Notified</td>
+                                    <td>@q.CaseFileStageDto</td>
+                                    <td><a href="/Portal/DavaSilme/@q.CaseId " class="custom-btn btn-2">Sil</a></td>
+                                    @*<td><input type="submit" value="Düzenle" class="custom-btn btn-1" /></td>*@
+                                    <td><a href="/Portal/DavaGuncelle/@q.CaseId" class="custom-btn btn-1">Düzenle</a></td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button type="button" class="custom-btn btn-13" data-toggle="modal" data-target=".bd-example-modal-xl">Yeni Dosya Kayıt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("DavaListe", "Portal", FormMethod.Post))
+{
+    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Yeni Dava Kayıt</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#menu1">Dosya Bilgileri</a></li>
+                        <li><a href="#menu2">Ödenen Tezminat Bilgileri</a></li>
+                    </ul>
+
+                </div>
+                <div class="modal-body">
+                    @*****@
+                    <div class="container">
+
+                        <div class="tab-content">
+
+                            <div id="menu1" class="tab-pane fade">
+                                <h3>Dosya Bilgileri</h3>
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("IHope No")
+                                            @Html.TextBoxFor(x => x.@case.IHopeId, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("İl")
+                                            @Html.DropDownListFor(x => x.@case.ProvinceId, (IEnumerable<SelectListItem>)ViewBag.vlu2, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Dava Konusu")
+                                            @*@Html.DropDownListFor(x => x.caseSubjectL.CaseSubject, (IEnumerable<SelectListItem>)ViewBag.vlu1, new { @class = "form-control" })*@
+                                            @Html.TextBoxFor(x => x.@case.CaseSubjectDto, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Kurum Numarası")
+                                            @Html.TextBoxFor(x => x.@case.CorporationId, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Dava Tarihi")
+                                            @Html.TextBoxFor(x => x.@case.CaseDate, new { @type = "date", @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Dosya Aşaması")
+                                            @*@Html.DropDownListFor(x => x.fileStageL.FileStageId, (IEnumerable<SelectListItem>)ViewBag.vlu3, new { @class = "form-control" })*@
+                                            @Html.TextBoxFor(x => x.@case.CaseFileStageDto, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Olay Tarihi")
+                                            @Html.TextBoxFor(x => x.@case.EventDate, new { @type = "date", @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Dava Sonucu")
+                                            @Html.DropDownListFor(x => x.@case.CaseResultId, (IEnumerable<SelectListItem>)ViewBag.vlu4, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <h2>_______________________________________________________________________________________________________________</h2>
+                                    <h3>Mahkeme Bilgileri</h3>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Mahkeme Bilgisi")
+                                            @Html.DropDownListFor(x => x.@case.CourtInfoId, (IEnumerable<SelectListItem>)ViewBag.vlu5, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Güncel Esas")
+                                            @Html.TextBoxFor(x => x.@case.ActualBasis, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Eski Esas")
+                                            @Html.TextBoxFor(x => x.@case.OldBasis, new { @class = "form-control" })
+                                        </div>
+
+                                    </div>
+                                    <h2>_______________________________________________________________________________________________________________</h2>
+                                    <h3>Davacı Bilgileri</h3>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Davacı")
+                                            @Html.TextBoxFor(x => x.@case.Claimant, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("TC Kimlik Numarası")
+                                            @Html.TextBoxFor(x => x.@case.Tc, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Davacı Vekili")
+                                            @Html.TextBoxFor(x => x.@case.ClaimantAttornerId, new { @class = "form-control" })
+                                        </div>
+
+                                    </div>
+
+                                    <h2>_______________________________________________________________________________________________________________</h2>
+                                    <h3>Davalı Bilgileri</h3>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Davalı")
+                                            @Html.TextBoxFor(x => x.@case.Defendant, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("İkinci Davalı")
+                                            @Html.TextBoxFor(x => x.@case.SecondDefendant, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Davalı Vekili")
+                                            @Html.TextBoxFor(x => x.@case.DefendantAttornerId, new { @class = "form-control" })
+                                        </div>
+
+                                    </div>
+                                    <h2>_______________________________________________________________________________________________________________</h2>
+                                    <h3>İhbar Olunan</h3>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("İhbar Olunan")
+                                            @Html.TextBoxFor(x => x.@case.Notified, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <h2>_______________________________________________________________________________________________________________</h2>
+                                    <h3>Diğer Bilgiler</h3>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Dava Açılış Değeri")
+                                            @Html.TextBoxFor(x => x.@case.CaseOpeningValue, new { @class = "form-control", @placeholder = "₺" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Dava Güncel Değeri")
+                                            @Html.TextBoxFor(x => x.@case.CaseActualValue, new { @class = "form-control", @placeholder = "₺" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Lehe Vekalet Ücreti")
+                                            @Html.TextBoxFor(x => x.@case.InFavorOfAgencyFee, new { @class = "form-control", @placeholder = "₺" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("İhtiyati Tedbir")
+                                            @Html.DropDownListFor(x => x.@case.InterimInjunction, (IEnumerable<SelectListItem>)ViewBag.vlu6, new { @class = "form-control", @readonly = "readonly" })
+
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("İhtiyari Tedbire İtiraz")
+                                            @Html.DropDownListFor(x => x.@case.ObjectiveOfInterimInjunction, (IEnumerable<SelectListItem>)ViewBag.vlu7, new { @class = "form-control", @readonly = "readonly" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Kesinleşme Tarihi")
+                                            @Html.TextBoxFor(x => x.@case.EffectiveDate, new { @type = "date", @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Arşiv")
+                                            @Html.DropDownListFor(x => x.@case.Archive, (IEnumerable<SelectListItem>)ViewBag.vlu8, new { @class = "form-control", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+                                </form>
+                                <div>
+                                    <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                    <input type="submit" value="Ekle" name="menu1btn" class="custom-btn btn-2" />
+                                </div>
+                            </div>
+
+                            <div id="menu2" class="tab-pane fade">
+                                <h3>Ödenen Tezminat Bilgileri</h3>
+                                <form>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("IHope No")
+                                            @Html.TextBoxFor(x => x.@case.IHopeId, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Sıra No")
+                                            @Html.DropDownListFor(x => x.damages.RowNumb, (IEnumerable<SelectListItem>)ViewBag.vlu9, new { @class = "form-control", @readonly = "readonly" })
+                                        </div>
+
+                                    </div>
+                                    <h2>_______________________________________________________________________________________________________________</h2>
+                                    <h3>Ödeme Bilgileri</h3>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Adet")
+                                            @Html.TextBoxFor(x => x.damages.Piece, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Taraf Bilgileri")
+                                            @Html.TextBoxFor(x => x.damages.PartInfo, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Ödeme Tipi")
+                                            @Html.DropDownListFor(x => x.paymentTypeL.PaymentType, (IEnumerable<SelectListItem>)ViewBag.vlu10, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Firma Bilgileri")
+                                            @Html.TextBoxFor(x => x.damages.FirmInfo, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("İş Alanı")
+                                            @Html.DropDownListFor(x => x.workAreaL.WorkArea, (IEnumerable<SelectListItem>)ViewBag.vlu11, new { @class = "form-control" })
+
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("İcra Bilgileri")
+                                            @Html.DropDownListFor(x => x.levyInfoL.LevyInfo, (IEnumerable<SelectListItem>)ViewBag.vlu12, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Tezminat Türü")
+                                            @Html.DropDownListFor(x => x.damageTypeL.DamageType, (IEnumerable<SelectListItem>)ViewBag.vlu13, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Alacaklı Bilgileri")
+                                            @Html.TextBoxFor(x => x.damages.PayeeInfo, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("SAP Ödeme Tarihi")
+                                            @Html.TextBoxFor(x => x.damages.SapPaymentDate, new { @type = "date", @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("SAP Ödeme Yılı")
+                                            @Html.TextBoxFor(x => x.damages.SapPaymentYear, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Ödenen Tutar")
+                                            @Html.TextBoxFor(x => x.damages.PaymentAmount, new { @class = "form-control", @placeholder = "₺" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("SAP Tutarı")
+                                            @Html.TextBoxFor(x => x.damages.SapAmount, new { @class = "form-control", @placeholder = "₺" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Nakit Teminat")
+                                            @Html.TextBoxFor(x => x.damages.CashCollateral, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Sigorta Kapsamında mı?")
+                                            @Html.TextBoxFor(x => x.damages.Insurable, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Hasar Dosya Durumu")
+                                            @Html.DropDownListFor(x => x.damages.FileDamageStatusId, (IEnumerable<SelectListItem>)ViewBag.vlu14, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Sigorta-Açıklama")
+                                            @Html.DropDownListFor(x => x.damages.InsuranceExpid, (IEnumerable<SelectListItem>)ViewBag.vlu15, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Rucu Bildirimi Yapıldı mı?")
+                                            @Html.TextBoxFor(x => x.damages.RecouseDeclaration, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Rucu Açıklama")
+                                            @Html.TextBoxFor(x => x.damages.RecouseExplanation, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Hesaplanan Rücu Tutarı")
+                                            @Html.TextBoxFor(x => x.damages.CalculatedRecouseAmount, new { @class = "form-control", @placeholder = "₺" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Tahsilat Tutarı")
+                                            @Html.TextBoxFor(x => x.damages.CollectionAmount, new { @class = "form-control", @placeholder = "₺" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Kalan Tutar")
+                                            @Html.TextBoxFor(x => x.damages.RemainingAmount, new { @class = "form-control", @placeholder = "₺" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Tahsilat Kanalı")
+                                            @Html.TextBoxFor(x => x.damages.CollectionChannel, new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            @Html.Label("Dosya Son Durum")
+                                            @Html.DropDownListFor(x => x.damages.CaseFinalSituation, (IEnumerable<SelectListItem>)ViewBag.vlu16, new { @class = "form-control", @readonly = "readonly" })
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            @Html.Label("Bilgi Notu")
+                                            @Html.TextAreaFor(x => x.damages.InfoNote, new { @class = "form-control" })
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                                <div>
+                                    <button class="custom-btn btn-16" data-dismiss="modal">İptal</button>
+                                    <input type="submit" value="Ekle" name="menu2btn" class="custom-btn btn-2" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

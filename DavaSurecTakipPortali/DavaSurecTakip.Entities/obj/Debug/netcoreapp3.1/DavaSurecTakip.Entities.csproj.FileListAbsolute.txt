@@ -1,0 +1,31 @@
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.deps.json
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.runtimeconfig.json
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.runtimeconfig.dev.json
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.dll
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.pdb
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Shared.dll
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Shared.pdb
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.csproj.AssemblyReference.cache
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.AssemblyInfoInputs.cache
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.AssemblyInfo.cs
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.csproj.CoreCompileInputs.cache
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.csproj.CopyComplete
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.dll
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.pdb
+Y:\Projeler\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.genruntimeconfig.cache
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.deps.json
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.runtimeconfig.json
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.runtimeconfig.dev.json
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.dll
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Entities.pdb
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Shared.dll
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\bin\Debug\netcoreapp3.1\DavaSurecTakip.Shared.pdb
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.csproj.AssemblyReference.cache
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.GeneratedMSBuildEditorConfig.editorconfig
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.AssemblyInfoInputs.cache
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.AssemblyInfo.cs
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.csproj.CoreCompileInputs.cache
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.csproj.CopyComplete
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.dll
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.pdb
+E:\YEDEK 03.22\175541035_Hasan_Çahan_İşyeriEgitimiDosya\Kodlar\DicleElektrik.DavaSurecTakipPortali\DavaSurecTakip.Entities\obj\Debug\netcoreapp3.1\DavaSurecTakip.Entities.genruntimeconfig.cache

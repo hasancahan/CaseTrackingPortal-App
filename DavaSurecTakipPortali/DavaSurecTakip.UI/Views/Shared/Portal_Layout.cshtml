@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @await Html.PartialAsync("Head_Layout")
+</head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="Portal_Layout.cshtml" class="site_title"><span>Dava Takip Portalı</span></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_pic">
+                                <img src="~/images/img.jpg" alt="..." class="img-circle profile_img">
+                            </div>
+
+                            <div class="profile_info">
+                                <span>Hoşgeldin</span>
+                                <h2>Hasan Çahan</h2>
+                            </div>
+                        </div>
+                        <br />
+
+                        <!-- sidebar menu -->
+                        @await Html.PartialAsync("Sidebar_Layout")
+                        <!-- /sidebar menu -->
+
+                    </div>
+                </div>
+                <!-- top navigation navbar -->
+                @await Html.PartialAsync("Navbar_Layout")
+                <!-- /top navigation navbar -->
+
+                <!-- page contentRB -->
+                <div class="right_col" role="main">
+
+                    <div class="container">
+                        <main role="main" class="pb-3">
+                            @RenderBody()
+                        </main>
+                    </div>
+
+                </div>
+                <!-- /page contentRB -->
+
+                <!-- footer content -->
+                @await Html.PartialAsync("Footer_Layout")
+                <!-- /footer content -->
+    </div>
+</div>
+
+</body>
+    @await Html.PartialAsync("Scripts_Layout")
+    @RenderSection("Scripts", required: false)
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

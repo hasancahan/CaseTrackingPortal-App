@@ -1,0 +1,188 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Entities\\DavaSurecTakip.Entities.csproj": {}
+  },
+  "projects": {
+    "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Entities\\DavaSurecTakip.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Entities\\DavaSurecTakip.Entities.csproj",
+        "projectName": "DavaSurecTakip.Entities",
+        "projectPath": "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Entities\\DavaSurecTakip.Entities.csproj",
+        "packagesPath": "C:\\Users\\Hasan Cahan\\.nuget\\packages\\",
+        "outputPath": "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Hasan Cahan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Shared\\DavaSurecTakip.Shared.csproj": {
+                "projectPath": "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Shared\\DavaSurecTakip.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Shared\\DavaSurecTakip.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Shared\\DavaSurecTakip.Shared.csproj",
+        "projectName": "DavaSurecTakip.Shared",
+        "projectPath": "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Shared\\DavaSurecTakip.Shared.csproj",
+        "packagesPath": "C:\\Users\\Hasan Cahan\\.nuget\\packages\\",
+        "outputPath": "E:\\YEDEK 03.22\\175541035_Hasan_Çahan_İşyeriEgitimiDosya\\Kodlar\\DicleElektrik.DavaSurecTakipPortali\\DavaSurecTakip.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Hasan Cahan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

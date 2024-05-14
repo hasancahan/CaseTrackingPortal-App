@@ -1,0 +1,45 @@
+﻿@model DavaSurecTakip.Entities.DbEntitiesModels.LookupAttornerL
+@{
+    Layout = null;
+}
+<br />
+<br />
+<h1>Uyarlama Güncelle</h1>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+      rel="stylesheet" 
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+      crossorigin="anonymous">
+
+<div class="form-box">
+    @using (Html.BeginForm("UyarlamaGuncelleData", "Portal", FormMethod.Post))
+    {
+        @Html.Label("Id")
+        @Html.TextBoxFor(x => x.AttornerId, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+
+        @Html.Label("Ad")
+        @Html.TextBoxFor(x => x.Attorner, new { @class = "form-control" })
+        <br />
+
+        <button class="btn btn-default" style="background-color:#0c19b4 ; color:white">Uyarlama Güncelle</button>
+        <button class="btn btn-default" style="background-color:#FC1C00 ; color:white">İptal</button>
+    }
+</div>
+
+<style>
+    body {
+        background: #f7f7f7;
+    }
+
+    .form-box {
+        max-width: 500px;
+        margin: auto;
+        padding: 50px;
+        background: #ffffff;
+        border: 10px solid #f2f2f2;
+    }
+
+    h1, p {
+        text-align: center;
+    }
+</style>
